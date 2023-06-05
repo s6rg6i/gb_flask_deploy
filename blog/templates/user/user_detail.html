@@ -9,7 +9,9 @@
       <div class="fw-bold">{{ user.login }}</div>
       <p>Id: {{ user.profile.name }}</p>
       <p>Email: {{ user.profile.email }}</p>
+      {% if user.profile.birthday %}
       <p>Birthday: {{ user.profile.birthday.strftime('%Y-%m-%d') }}</p>
+      {% endif %}
       <p>Created at: {{ user.profile.created }}</p>
     </div>
     публикаций:&nbsp;
