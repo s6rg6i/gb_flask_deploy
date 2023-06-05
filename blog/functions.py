@@ -25,11 +25,3 @@ def validate_image(stream):
     stream.seek(0)
     return imghdr.what(None, header)
 
-
-if __name__ == '__main__':
-    s0 = "out_23__1.txt"
-    s1 = get_file_name(s0)
-    print(s1)
-
-    fff = lambda x: get_file_name(x)
-    print(f'{fff(s0)=}')
