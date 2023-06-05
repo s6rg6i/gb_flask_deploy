@@ -3,10 +3,6 @@
 # JetBrains
 .idea
 
-# SQLite database
-*.sqlite
-*.db
-
 # Configuration
 .env
 
