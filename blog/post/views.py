@@ -34,7 +34,8 @@ def post_detail(pk: int):
     form = CommentForm()
     comments = []
     # проверка - есть ли комментарии
-    if cs := Comment.query.filter_by(post_id=pk).order_by(Comment.path):
+    cs = Comment.query.filter_by(post_id=pk).order_by(Comment.path)
+    if cs:
         comments = [dict(id=c.id, level=f"margin-left: {40 * c.level()}px;", author=c.author.login,
                          date=c.timestamp, text=c.text, is_form=c.id == comm_id) for c in cs]
 
@@ -44,7 +45,8 @@ def post_detail(pk: int):
 
 @post.route("/search", methods=('GET',))
 def posts_by_phrase():
-    if phrase := request.args.get('search', ''):
+    phrase = request.args.get('search', '')
+    if phrase:
         posts = Post.query.filter(Post.content.contains(phrase)).all()
         title = f'Статьи, содержащих <{phrase}>'
         return render_with_common_dict("post/posts.html", posts=posts, title=title)
@@ -74,7 +76,8 @@ def create_post():
         content = form.content.data
         category = Category.query.get(int(form.category.data))
         file_name = None
-        if f := form.photo.data:
+        f = form.photo.data
+        if f:
             f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], get_file_name(f.filename)))
         author = User.query.get(current_user.id)
         tags = [tag for tag in Tag.query.filter(Tag.id.in_(form.tags.data))]

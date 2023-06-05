@@ -13,7 +13,8 @@ def set_superuser(pk):
     """ Команда создания суперпользователя """
     from blog.models import User
     with app.app_context():
-        if user := User.query.get(pk):
+        user = User.query.get(pk)
+        if user:
             user.is_staff = True
             db.session.add(user)
             db.session.commit()
