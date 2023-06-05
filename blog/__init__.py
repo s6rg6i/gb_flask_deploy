@@ -21,6 +21,7 @@ def register_extensions(app: Flask):
     extension.login_manager.login_view = 'auth.login'
     extension.login_manager.init_app(app)
 
+    app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
     extension.admin.init_app(app)
 
 

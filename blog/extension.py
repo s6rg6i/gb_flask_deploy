@@ -6,4 +6,4 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 migrate = Migrate()
 login_manager = LoginManager()
-admin = Admin(name='BLOG ADMIN PANEL', template_mode='bootstrap4')
+admin = Admin(name='BLOG ADMIN PANEL', template_mode='bootstrap3')
