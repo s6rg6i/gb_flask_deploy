@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+<body>
+{% block page_title %}Информация о пользователе{% endblock %}
+{% block content %}
+
+<ol class="list-group list-group-numbered">
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">{{ user.login }}</div>
+      <p>Id: {{ user.profile.name }}</p>
+      <p>Email: {{ user.profile.email }}</p>
+      <p>Birthday: {{ user.profile.birthday.strftime('%Y-%m-%d') }}</p>
+      <p>Created at: {{ user.profile.created }}</p>
+    </div>
+    публикаций:&nbsp;
+    <span class="badge rounded-pill">&nbsp;{{ user.post|length }}</span>
+  </li>
+</ol>
+
+{% endblock %}
+</body>
+</html>

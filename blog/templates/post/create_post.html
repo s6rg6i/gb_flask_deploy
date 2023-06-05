@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+<body>
+{% block page_title %}Создание поста{% endblock %}
+
+{% block content %}
+
+{% from "macro/render-form.html" import render_form %}
+
+  {{ render_form(form, url_for('post.create_post')) }}
+
+{% endblock %}
+</body>
+</html>
+

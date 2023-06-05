@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+<body>
+{% block page_title %}Регистрация{% endblock %}
+{% block content %}
+{% from "macro/render-form.html" import render_form %}
+
+{#% if errors %}
+    {% for error in errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endfor %}
+{% endif %#}
+
+  {{ render_form(form, url_for('auth.register')) }}
+
+{% endblock %}
+</body>
+</html>
