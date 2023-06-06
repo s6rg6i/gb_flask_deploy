@@ -90,6 +90,7 @@ def create_post():
 
 @post.route("/fill", methods=('GET',))
 def fill_in_tbl():
+    db_tables_cleanup()
     db_tables_filling('data.json')
     return redirect(url_for('post.post_list'))
 
